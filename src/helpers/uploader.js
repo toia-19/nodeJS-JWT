@@ -2,11 +2,11 @@ const { v4: uuidv4 } = require("uuid");
 const path = require ("path");
 
 // Extensiones de archivo permitidas
-const extensions = ["jpg", "jpeg", "png", "gif", "bpm", "svg"];
+const extension = ["jpg", "jpeg", "png", "gif", "bpm", "svg"];
 
 /**
  * @param { file to be upload } fileToUpload res.body ** file
- * @param { extension accepted } extensions array: string
+ * @param { extension accepted } extension array: string
  * @param { path where the file going to be save (in the server) } pathLocation string
  * @returns string fileName
 */
@@ -20,7 +20,7 @@ const uploadFiles = ( fileToUpload ) => {
 
         // Verificamos que respete extensiones definidas previamente
         if (!extension.includes(extension)) {
-            return rejected({mgs: `Allowed extension: ${extensions}`});
+            return rejected({mgs: `Allowed extension: ${extension}`});
         }
 
         const tempName = uuidv4() + "." + extension; // Crea UUID para el archivo
